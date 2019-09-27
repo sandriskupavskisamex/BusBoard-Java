@@ -43,14 +43,6 @@ public class Main {
         System.out.println("Enter your post code: ");
         String postCode = myObj1.nextLine();
 
-//            "nw51tl"
-
-        //        Client client = ClientBuilder.newBuilder().register(JacksonFeature.class).sslContext(sslcontext).hostnameVerifier((s1, s2) -> true).build();
-        //        List<BusInformation> response = client.target("https://api.tfl.gov.uk/StopPoint/" + stopId + "/Arrivals" + "?app_key=''")
-        //                .request("text/json")
-        //                .get(new GenericType<List<BusInformation>>() {});
-
-
         Client client2 = ClientBuilder.newBuilder().register(JacksonFeature.class).sslContext(sslcontext).hostnameVerifier((s1, s2) -> true).build();
         resultPostCode locationGetter = client2.target("https://api.postcodes.io/postcodes/" + postCode)
                 .request("text/json")
