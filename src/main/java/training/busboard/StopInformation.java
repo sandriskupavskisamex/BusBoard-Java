@@ -6,9 +6,9 @@ import java.util.ArrayList;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StopInformation {
 
-    String naptanId;
-    String commonName;
-    int index;
+    public String naptanId;
+    public String commonName;
+    public int index;
 
     public String getNaptanId() {
         return naptanId;

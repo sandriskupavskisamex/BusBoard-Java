@@ -15,17 +15,17 @@
 
                 <table>
 
-                    <tr>
-                        <td>Destiation</td>
+                    <tr class="column-header">
+                        <td>Destination</td>
                         <td>LineID</td>
                         <td>TimeToArrive</td>
                     </tr>
 
-                    <tr th:each ="prod : ${busInfo.busInformationList}">
-                        <td th:text ="${prod.destinationName}"></td>
-                        <td th:text ="${prod.lineId}"></td>
-                        <td th:text ="${prod.timeToStation}"></td>
-
+                    <tr th:each ="prod : ${busInfo.stoppointswrapper.getStopPoints()}">
+                        <td th:text ="${prod.getCommonName()}"></td>
+                        <td th:text ="${prod.getIndex()}"></td>
+                        <td th:text ="${prod.getNaptanId()}"></td>
+                    </tr>
                 <!-- <p> AAAA <span th:each="${busInfo}"> </span></p> -->
                 <!-- <p> th:text="${busInfo.lineId}"</p> -->
 

@@ -18,7 +18,11 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String args[]) throws KeyManagementException, NoSuchAlgorithmException {
+    public static Client getClient() throws Exception{
+        return ClientBuilder.newBuilder().register(JacksonFeature.class).sslContext(SSLContext.getInstance("TLS")).hostnameVerifier((s1, s2) -> true).build();
+    }
+
+    public static void main(String args[]) throws KeyManagementException, NoSuchAlgorithmException, Exception {
 
         System.setProperty("http.proxyHost", "localhost");
         System.setProperty("http.proxyPort", "9090");
@@ -43,7 +47,8 @@ public class Main {
         System.out.println("Enter your post code: ");
         String postCode = myObj1.nextLine();
 
-        Client client2 = ClientBuilder.newBuilder().register(JacksonFeature.class).sslContext(sslcontext).hostnameVerifier((s1, s2) -> true).build();
+        Client client2 = getClient();
+
         resultPostCode locationGetter = client2.target("https://api.postcodes.io/postcodes/" + postCode)
                 .request("text/json")
                 .get(resultPostCode.class);

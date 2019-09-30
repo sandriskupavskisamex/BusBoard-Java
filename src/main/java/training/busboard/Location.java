@@ -6,8 +6,8 @@ import java.util.ArrayList;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Location {
 
-    double longitude;
-    double latitude;
+    public double longitude;
+    public double latitude;
 
     public double getLongitude() {
         return longitude;
